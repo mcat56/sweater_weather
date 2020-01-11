@@ -1,21 +1,19 @@
 class DarkSkyService
-  def self.get_latlong(location)
-    self.get_json(location)
+  def self.get_latlong(latlong)
+    self.get_json(latlong)
   end
 
 
   private
 
-    def self.connection(location)
-      Faraday.new(url: 'https://api.darksky.net/forecast') do |f|
-        f.params[:address] = location
-        f.params[:key] = ENV['GOOGLE_GEOCODE_API_KEY']
+    def self.connection(latlong)
+      Faraday.new(url: "https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/#{latlong}" do |f|
         f.adapter Faraday.default_adapter
       end
     end
 
-    def self.get_json(location)
-      response = self.connection(location).get
+    def self.get_json(latlong)
+      response = self.connection(latlong).get
       JSON.parse(response.body, symbolize_names: true)
     end
 
