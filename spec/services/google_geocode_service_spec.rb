@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'can receive latitude and longitude for address' do
   it 'returns coordinates' do
     latlong = File.read('./spec/fixtures/google_geocode_response.json')

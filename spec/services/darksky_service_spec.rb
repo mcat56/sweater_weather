@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'can receive forecast for latitude and longitude' do
   it 'returns full forecast' do
     forecast = File.read('./spec/fixtures/darksky_response.json')
