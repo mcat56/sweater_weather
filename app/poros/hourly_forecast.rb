@@ -7,6 +7,4 @@ class HourlyForecast
     @humidity = forecast[:hourly][count][:humidity]
     @temperature = forecast[:hourly][count][:temperature]
   end
-
-
 end

@@ -5,5 +5,4 @@ class Api::V1::ForecastController < ApplicationController
     binding.pry
     # render locals: { facade: ForecastFacade.new(params[:location]) }
   end
-
 end

@@ -5,6 +5,4 @@ class DailyForecast
     @high = forecast[:daily].first[:temperatureHigh]
     @low =  forecast[:daily].first[:temperatureLow]
   end
-
-
 end
