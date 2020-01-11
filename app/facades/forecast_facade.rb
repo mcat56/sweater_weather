@@ -5,7 +5,8 @@ class ForecastFacade
   end
 
   def get_coordinates
-    latlong = GoogleGeocodeService.get_coordinates(@location)
+    coords = GoogleGeocodeService.get_coordinates(@location)
+    Coordinate.new(coords)
   end
 
   def get_forecast
