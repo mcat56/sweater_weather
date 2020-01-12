@@ -39,6 +39,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'awesome_print'
   gem 'webmock'
+  gem 'vcr'
   gem 'simplecov'
   gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
