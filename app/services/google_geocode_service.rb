@@ -1,8 +1,8 @@
 class GoogleGeocodeService
-  def self.get_latlong(address)
-    self.get_json(address)
-  end
 
+  def self.get_coordinates(address)
+    self.get_json(address)[:results].first[:geometry][:location]
+  end
 
   private
 
