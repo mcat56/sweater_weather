@@ -1,6 +1,7 @@
 class Api::V1::UsersController < AppplicationController
 
   def create
+    binding.pry
   end
 
   private
