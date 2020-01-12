@@ -17,7 +17,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 VCR.configure do |config|
-  config.ignore_localhost = true
+  config.ignore_localhost = false
   config.cassette_library_dir = 'spec/cassettes'
   config.hook_into :webmock
   config.configure_rspec_metadata!
