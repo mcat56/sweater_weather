@@ -21,6 +21,7 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
   config.hook_into :webmock
   config.configure_rspec_metadata!
+  config.default_cassette_options = { match_requests_on: [:host, :method, :uri, :body, :path] }
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
