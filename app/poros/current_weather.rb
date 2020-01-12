@@ -5,6 +5,7 @@ class CurrentWeather
               :uvIndex
 
   def initialize(forecast)
+    @nil = nil
     @summary = forecast[:currently][:summary]
     @icon = forecast[:currently][:icon]
     @temperature = forecast[:currently][:temperature]
