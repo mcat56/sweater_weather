@@ -5,5 +5,4 @@ class Background
     @id = nil
     @image_url = url
   end
-
 end

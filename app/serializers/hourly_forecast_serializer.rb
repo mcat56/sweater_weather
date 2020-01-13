@@ -10,5 +10,4 @@ class HourlyForecastSerializer
   attribute :temperature do |forecast|
     forecast.temperature.round
   end
-
 end

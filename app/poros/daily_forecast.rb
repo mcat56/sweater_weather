@@ -14,6 +14,4 @@ class DailyForecast
       DateTime.strptime("#{hr[:time]}", '%s').hour == 20
     end[:summary]
   end
-
-
 end
