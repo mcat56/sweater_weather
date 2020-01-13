@@ -17,8 +17,7 @@ class AntipodeFacade
   end
 
   def location_name
-    city = GoogleGeocodeService.get_city(antipode_city)
-    loc = City.new(city)
+    GoogleGeocodeService.get_city(antipode_city)
   end
 
   def antipode_weather
