@@ -1,7 +1,7 @@
-class Api::V1::UsersController < AppplicationController
+class Api::V1::UsersController < ApplicationController
 
   def create
-    binding.pry
+    user = User.create(user_params)
   end
 
   private
@@ -9,6 +9,4 @@ class Api::V1::UsersController < AppplicationController
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
-
-
 end

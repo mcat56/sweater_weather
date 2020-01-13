@@ -1,8 +1,23 @@
 class CurrentWeatherSerializer
   include FastJsonapi::ObjectSerializer
 
-  attributes :id, :summary, :icon, :temperature, :humidity,
-             :feels_like, :visibility, :uvIndex
+  attributes :id, :summary,
+             :temperature, :visibility,
+             :uvIndex, :humidity
 
+  attribute :feels_like do |forecast|
+    forecast.feels_like.round
+  end
 
+  attribute :visibility do |forecast|
+    ('%.2f' % forecast.visibility).to_f
+  end
+
+  attribute :temperature do |forecast|
+    forecast.temperature.round
+  end
+
+  attribute :humidity do |forecast|
+    (forecast.humidity * 100).round
+  end
 end

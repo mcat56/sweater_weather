@@ -1,6 +1,6 @@
 class ForecastFacade
   attr_reader :id
-  
+
   def initialize(location)
     @id = nil
     @location = location
@@ -16,7 +16,8 @@ class ForecastFacade
   end
 
   def current_weather
-    CurrentWeather.new(get_forecast)
+    c = CurrentWeather.new(get_forecast)
+    CurrentWeatherDecorator.new(c)
   end
 
   def hourly_forecast
@@ -26,10 +27,11 @@ class ForecastFacade
       hourly << HourlyForecast.new(i, get_forecast)
       i += 1
     end
-    hourly
+    hourly.map { |h| HourlyForecastDecorator.new(h) }
   end
 
   def daily_forecast
-    DailyForecast.new(get_forecast)
+    d = DailyForecast.new(get_forecast)
+    DailyForecastDecorator.new(d)
   end
 end
