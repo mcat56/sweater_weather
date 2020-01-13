@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render status: :created, body: user.api_key
     else
-      render status: :bad_request, body: 'Bad Request'
+      render status: :bad_request, body: user.errors.full_messages.to_sentence
     end
   end
 
