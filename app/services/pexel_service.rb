@@ -1,7 +1,7 @@
 class PexelService
 
   def self.get_photo(location)
-    self.get_json(location)[:photos].first[:src][:medium]
+    self.get_json(location)[:photos].first[:src][:medium] || "https://www.pexels.com/photo/photo-of-blue-sky-912110/"
   end
 
   private
