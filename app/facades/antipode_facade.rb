@@ -7,13 +7,11 @@ class AntipodeFacade
   end
 
   def antipode_coord
-    coords = GoogleGeocodeService.get_coordinates(@search_location)
-    coord = Coordinate.new(coords)
+    @coord ||= Coordinate.new(GoogleGeocodeService.get_coordinates(@search_location))
   end
 
   def antipode_city
-    coords = AmypodeService.get_coordinates(antipode_coord)
-    coord = Coordinate.new(coords)
+    @city ||= Coordinate.new(AmypodeService.get_coordinates(antipode_coord))
   end
 
   def location_name
