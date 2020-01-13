@@ -24,6 +24,7 @@ VCR.configure do |config|
   config.filter_sensitive_data("<GOOGLE_GEOCODE_API_KEY>") { ENV['GOOGLE_GEOCODE_API_KEY'] } # filter api keys and the like
   config.filter_sensitive_data("<PEXEL_API_KEY>") { ENV['PEXEL_API_KEY'] } # filter api keys and the like
   config.filter_sensitive_data("<DARKSKY_API_KEY>") { ENV['DARKSKY_API_KEY'] } # filter api keys and the like
+  config.filter_sensitive_data("<AMYPODE_API_KEY>") { ENV['AMYPODE_API_KEY'] } # filter api keys and the like
 end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
