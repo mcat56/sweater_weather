@@ -10,7 +10,7 @@ describe 'sweater weather api' do
     expect(user.email).to eq('foofoo@gmail.com')
     expect(user.api_key).to_not eq(nil)
     expect(response.status).to eq(201)
-    expect(response.body).to eq(user.api_key)
+    expect(JSON.parse(response.body)['api_key']).to eq(user.api_key)
   end
   it 'creates returns a 400 status for unsuccessful requests with a description' do
 
