@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       post '/users', to: 'users#create'
       post '/sessions', to: 'sessions#create'
 
-      post 'road_trip', to: 'roadtrips#new'
+      post '/road_trip', to: 'roadtrips#new'
     end
   end
 end
