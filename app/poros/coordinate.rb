@@ -3,6 +3,6 @@ class Coordinate
 
   def initialize(coords)
     @lat = coords[:lat]
-    @lng = coords[:lng]
+    @lng = coords[:lng] || coords[:long]
   end
 end

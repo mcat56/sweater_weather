@@ -1,5 +1,5 @@
 class AntipodeFacade
-  attr_reader :id
+  attr_reader :id, :search_location
 
   def initialize(location)
     @id = nil
@@ -13,14 +13,16 @@ class AntipodeFacade
 
   def antipode_city
     coords = AmypodeService.get_coordinates(antipode_coord)
+    coord = Coordinate.new(coords)
   end
 
   def location_name
     city = GoogleGeocodeService.get_city(antipode_city)
+    loc = City.new(city)
   end
 
-  def anitpode_weather
-    w = DarkSkyService.get_weather(antipode_city)
+  def antipode_weather
+    w = DarkSkyService.get_forecast(antipode_city)
     aw = AntipodeWeather.new(w)
     AntipodeWeatherDecorator.new(aw)
   end

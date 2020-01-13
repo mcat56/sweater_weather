@@ -1,7 +1,7 @@
 class AmypodeService
 
   def self.get_coordinates(coord)
-    self.get_json
+    self.get_json(coord)[:data][:attributes]
   end
 
   private
