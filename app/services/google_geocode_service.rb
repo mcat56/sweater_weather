@@ -4,6 +4,10 @@ class GoogleGeocodeService
     self.get_json(address)[:results].first[:geometry][:location]
   end
 
+  def self.get_city(coords)
+    self.get_json(coords)
+  end
+
   private
 
     def self.connection(address)
