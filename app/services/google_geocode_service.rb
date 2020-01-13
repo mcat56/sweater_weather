@@ -9,7 +9,7 @@ class GoogleGeocodeService
     def self.connection(address)
       Faraday.new(url: 'https://maps.googleapis.com/maps/api/geocode/json') do |f|
         f.params[:address] = address
-        f.params[:key] = ENV['GOOGLE_GEOCODE_API_KEY']
+        f.params[:key] = ENV['GOOGLE_API_KEY']
         f.adapter Faraday.default_adapter
       end
     end

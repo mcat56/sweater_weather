@@ -1,4 +1,4 @@
-class Api::V1::BackgroundController < ApplicationController
+class Api::V1::BackgroundsController < ApplicationController
 
   def new
     facade = BackgroundFacade.new(params[:location])
