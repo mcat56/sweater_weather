@@ -1,8 +1,8 @@
 class AntipodeWeatherDecorator
-  attr_reader :temperature, :summary
+  attr_reader :current_temperature, :summary
 
   def initialize(forecast)
     @summary = forecast.summary
-    @temperature = forecast.temperature.round
+    @current_temperature = forecast.temperature.round
   end
 end

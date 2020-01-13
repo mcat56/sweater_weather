@@ -16,6 +16,6 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes][:location_name]).to eq('Jujuy')
     expect(json[:data][:attributes][:search_location]).to eq('Hong Kong')
     expect(json[:data][:attributes][:antipode_weather]).to have_key(:summary)
-    expect(json[:data][:attributes][:antipode_weather]).to have_key(:temperature)
+    expect(json[:data][:attributes][:antipode_weather]).to have_key(:current_temperature)
   end
 end
