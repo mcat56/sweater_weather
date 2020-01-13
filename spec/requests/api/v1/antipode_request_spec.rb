@@ -12,5 +12,10 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes]).to have_key(:location_name)
     expect(json[:data][:attributes]).to have_key(:antipode_weather)
     expect(json[:data][:attributes]).to have_key(:search_location)
+
+    expect(json[:data][:attributes][:location_name]).to eq('Jujuy')
+    expect(json[:data][:attributes][:search_location]).to eq('Hong Kong')
+    expect(json[:data][:attributes][:antipode_weather]).to have_key(:summary)
+    expect(json[:data][:attributes][:antipode_weather]).to have_key(:temperature)
   end
 end

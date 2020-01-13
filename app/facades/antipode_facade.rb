@@ -3,7 +3,7 @@ class AntipodeFacade
 
   def initialize(location)
     @id = nil
-    @search_location = location
+    @search_location = location.gsub('_', ' ').split(' ').map {|w| w.capitalize}.join(' ')
   end
 
   def antipode_coord
