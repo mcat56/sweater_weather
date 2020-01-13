@@ -18,6 +18,6 @@ describe 'sweater weather api' do
 
     expect(User.all).to eq([])
     expect(response.status).to eq(400)
-    expect(response.body).to eq("Email can't be blank, Password confirmation doesn't match Password, and Password confirmation doesn't match Password")
+    expect(response.body).to eq("Email can't be blank and Password confirmation doesn't match Password")
   end
 end
