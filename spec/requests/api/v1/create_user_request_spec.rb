@@ -12,7 +12,7 @@ describe 'sweater weather api' do
     expect(response.status).to eq(201)
     expect(JSON.parse(response.body)['api_key']).to eq(user.api_key)
   end
-  it 'creates returns a 400 status for unsuccessful requests with a description' do
+  it 'returns a 400 status for unsuccessful requests with a description' do
 
     post "/api/v1/users", :params => '{ "password": "password", "password_confirmation": "woops" }', :headers => { "CONTENT_TYPE" => "application/json"  }
 
