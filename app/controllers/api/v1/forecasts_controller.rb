@@ -1,4 +1,4 @@
-class Api::V1::ForecastController < ApplicationController
+class Api::V1::ForecastsController < ApplicationController
 
   def new
     facade = ForecastFacade.new(params[:location])
