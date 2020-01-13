@@ -5,5 +5,4 @@ class Api::V1::BackgroundController < ApplicationController
     serialized = BackgroundSerializer.new(facade)
     render json: serialized
   end
-
 end
