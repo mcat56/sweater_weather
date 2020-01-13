@@ -1,11 +1,13 @@
 class CurrentWeatherDecorator
   attr_reader :temperature, :humidity,
               :feels_like, :visibility,
-              :summary, :uvindex
+              :summary, :uvindex,
+              :icon
 
   def initialize(forecast)
     @summary = forecast.summary
     @uvIndex = forecast.uvIndex
+    @icon = forecast.icon
     @temperature = forecast.temperature.round
     @humidity = (forecast.humidity * 100).round
     @feels_like = forecast.feels_like.round
