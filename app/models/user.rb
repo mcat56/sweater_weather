@@ -6,6 +6,6 @@ class User < ApplicationRecord
   before_create :get_key
 
   def get_key
-    self.api_key = SecureRandom.base64
+    self.api_key = SecureRandom.base64(27)
   end
 end
