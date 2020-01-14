@@ -17,7 +17,7 @@ class ForecastFacade
 
   def current_weather
     c = CurrentWeather.new(get_forecast)
-    CurrentWeatherDecorator.new(c)
+    CurrentWeatherPresenter.new(c)
   end
 
   def hourly_forecast
@@ -27,11 +27,11 @@ class ForecastFacade
       hourly << HourlyForecast.new(i, get_forecast)
       i += 1
     end
-    hourly.map { |h| HourlyForecastDecorator.new(h) }
+    hourly.map { |h| HourlyForecastPresenter.new(h) }
   end
 
   def daily_forecast
     d = DailyForecast.new(get_forecast)
-    DailyForecastDecorator.new(d)
+    DailyForecastPresenter.new(d)
   end
 end

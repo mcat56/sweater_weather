@@ -1,4 +1,4 @@
-class DailyForecastDecorator
+class DailyForecastPresenter
   attr_reader :high, :low, :today, :tonight, :icon
 
   def initialize(forecast)

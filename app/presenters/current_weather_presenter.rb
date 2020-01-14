@@ -1,4 +1,4 @@
-class CurrentWeatherDecorator
+class CurrentWeatherPresenter
   attr_reader :temperature, :humidity,
               :feels_like, :visibility,
               :summary, :uvindex,
