@@ -7,8 +7,8 @@ class ForecastFacade
   end
 
   def get_coordinates
-    coords = GoogleGeocodeService.get_coordinates(@location)
-    Coordinate.new(coords)
+    coordinates = GoogleGeocodeService.get_coordinates(@location)
+    Coordinate.new(coordinates)
   end
 
   def get_forecast
@@ -16,8 +16,8 @@ class ForecastFacade
   end
 
   def current_weather
-    c = CurrentWeather.new(get_forecast)
-    CurrentWeatherPresenter.new(c)
+    current_weather = CurrentWeather.new(get_forecast)
+    CurrentWeatherPresenter.new(current_weather)
   end
 
   def hourly_forecast
@@ -31,7 +31,7 @@ class ForecastFacade
   end
 
   def daily_forecast
-    d = DailyForecast.new(get_forecast)
-    DailyForecastPresenter.new(d)
+    daily_forecast = DailyForecast.new(get_forecast)
+    DailyForecastPresenter.new(daily_forecast)
   end
 end

@@ -12,17 +12,17 @@ class RoadtripFacade
     @time[:text]
   end
 
-  def destination_coords
+  def destination_coordinates
     @coord ||= Coordinate.new(GoogleGeocodeService.get_coordinates(@destination))
   end
 
   def time_zone
-    @zone ||= DarkSkyService.get_forecast(destination_coords)[:timezone]
+    @zone ||= DarkSkyService.get_forecast(destination_coordinates)[:timezone]
   end
 
   def arrival_forecast
-    forecast = DarkSkyService.get_destination_forecast(destination_coords, @time[:value], time_zone)
-    des_weather = ArrivalForecast.new(forecast)
-    ArrivalForecastPresenter.new(des_weather)
+    forecast = DarkSkyService.get_destination_forecast(destination_coordinates, @time[:value], time_zone)
+    arrival_forecast = ArrivalForecast.new(forecast)
+    ArrivalForecastPresenter.new(arrival_forecast)
   end
 end
