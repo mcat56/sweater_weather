@@ -14,8 +14,8 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes]).to have_key(:travel_time)
     expect(json[:data][:attributes]).to have_key(:origin)
     expect(json[:data][:attributes]).to have_key(:destination)
-    expect(json[:data][:attributes]).to have_key(:destination_weather)
-    expect(json[:data][:attributes][:destination_weather]).to have_key(:summary)
-    expect(json[:data][:attributes][:destination_weather]).to have_key(:temperature)
+    expect(json[:data][:attributes]).to have_key(:arrival_forecast)
+    expect(json[:data][:attributes][:arrival_forecast]).to have_key(:summary)
+    expect(json[:data][:attributes][:arrival_forecast]).to have_key(:temperature)
   end
 end
