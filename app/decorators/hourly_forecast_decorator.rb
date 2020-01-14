@@ -6,11 +6,11 @@ class HourlyForecastDecorator
     @icon = forecast.icon
     @humidity = (forecast.humidity * 100).round
     @temperature = forecast.temperature.round
-    @time = format_time(forecast.time)
+    @time = format_time(forecast.time, forecast.time_zone)
   end
 
-  def format_time(unix)
-    d = DateTime.strptime(unix.to_s, '%s')
+  def format_time(unix, zone)
+    d = Time.at(unix).in_time_zone(zone)
     d.strftime('%I') + ' ' + d.strftime('%p')
   end
 end
