@@ -1,0 +1,16 @@
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "id": null,
+            "travel_time": "1 hour 48 mins",
+            "arrival_forecast": {
+                "summary": "Clear",
+                "temperature": 19
+            },
+            "origin": "denver,co",
+            "destination": "pueblo,co"
+        }
+    }
+}
