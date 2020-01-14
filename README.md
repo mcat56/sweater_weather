@@ -19,12 +19,14 @@ get:   https://sweater-weather-123.herokuapp.com/api/v1/road_trip
 
 ### Background Image
 get:    https://sweater-weather-123.herokuapp.com/api/v1/backgrounds
+
      ```GET /api/v1/backgrounds?location=denver,co
      Content-Type: application/json
      Accept: application/json``` 
     
 ### Register User
 post:   https://sweater-weather-123.herokuapp.com/api/v1/users
+
     ```POST /api/v1/users
     Content-Type: application/json
     Accept: application/json```
@@ -37,6 +39,7 @@ post:   https://sweater-weather-123.herokuapp.com/api/v1/users
  
 ### Login User
 post:   https://sweater-weather-123.herokuapp.com/api/v1/sessions
+
     ```POST /api/v1/sessions
     Content-Type: application/json
     Accept: application/json```
@@ -48,6 +51,7 @@ post:   https://sweater-weather-123.herokuapp.com/api/v1/sessions
 
 ### RoadTrip
 post:   https://sweater-weather-123.herokuapp.com/api/v1/road_trip
+
     ```POST /api/v1/road_trip
        Content-Type: application/json
        Accept: application/json```
