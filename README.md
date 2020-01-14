@@ -6,7 +6,8 @@ Sweater Weather is a Rails web JSON API with POSTGRES db that exposes endpoints 
 ## Setup
 * Clone this repository
 * $ bundle
-* Test: $ rspec
+* $ rspec
+
 
 ## Endpoints
 
