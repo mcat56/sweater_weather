@@ -1,4 +1,4 @@
-class ArrivalForecastDecorator
+class ArrivalForecastPresenter
   attr_reader :summary, :temperature
 
   def initialize(forecast)

@@ -7,8 +7,8 @@ class ForecastFacade
   end
 
   def get_coordinates
-    coords = GoogleGeocodeService.get_coordinates(@location)
-    Coordinate.new(coords)
+    coordinates = GoogleGeocodeService.get_coordinates(@location)
+    Coordinate.new(coordinates)
   end
 
   def get_forecast
@@ -16,8 +16,8 @@ class ForecastFacade
   end
 
   def current_weather
-    c = CurrentWeather.new(get_forecast)
-    CurrentWeatherDecorator.new(c)
+    current_weather = CurrentWeather.new(get_forecast)
+    CurrentWeatherPresenter.new(current_weather)
   end
 
   def hourly_forecast
@@ -27,11 +27,11 @@ class ForecastFacade
       hourly << HourlyForecast.new(i, get_forecast)
       i += 1
     end
-    hourly.map { |h| HourlyForecastDecorator.new(h) }
+    hourly.map { |h| HourlyForecastPresenter.new(h) }
   end
 
   def daily_forecast
-    d = DailyForecast.new(get_forecast)
-    DailyForecastDecorator.new(d)
+    daily_forecast = DailyForecast.new(get_forecast)
+    DailyForecastPresenter.new(daily_forecast)
   end
 end

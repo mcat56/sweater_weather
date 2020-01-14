@@ -1,4 +1,4 @@
-class HourlyForecastDecorator
+class HourlyForecastPresenter
   attr_reader :humidity, :temperature, :summary, :icon, :time
 
   def initialize(forecast)
