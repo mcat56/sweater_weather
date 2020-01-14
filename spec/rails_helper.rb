@@ -21,7 +21,7 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
   config.hook_into :webmock
   config.configure_rspec_metadata!
-  config.default_cassette_options = { match_requests_on: [:method, :path] }
+  config.default_cassette_options = { match_requests_on: [:method, :uri] }
   config.filter_sensitive_data("<GOOGLE_API_KEY>") { ENV['GOOGLE_API_KEY'] } # filter api keys and the like
   config.filter_sensitive_data("<PEXEL_API_KEY>") { ENV['PEXEL_API_KEY'] } # filter api keys and the like
   config.filter_sensitive_data("<DARKSKY_API_KEY>") { ENV['DARKSKY_API_KEY'] } # filter api keys and the like
