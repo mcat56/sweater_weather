@@ -14,6 +14,7 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes]).to have_key(:current_weather)
 
     expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:humidity)
+    expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:time)
     expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:temperature)
     expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:summary)
     expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:icon)
@@ -25,6 +26,7 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes][:daily_forecast]).to have_key(:icon)
 
     expect(json[:data][:attributes][:current_weather]).to have_key(:summary)
+    expect(json[:data][:attributes][:current_weather]).to have_key(:time)
     expect(json[:data][:attributes][:current_weather]).to have_key(:temperature)
     expect(json[:data][:attributes][:current_weather]).to have_key(:humidity)
     expect(json[:data][:attributes][:current_weather]).to have_key(:feels_like)

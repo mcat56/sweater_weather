@@ -1,5 +1,5 @@
 class RoadtripFacade
-  attr_reader :id, :origin, :destination
+  attr_reader :id, :origin, :destination, :origin
 
   def initialize(origin, destination)
     @id = nil
@@ -16,9 +16,9 @@ class RoadtripFacade
     @coord ||= Coordinate.new(GoogleGeocodeService.get_coordinates(@destination))
   end
 
-  def destination_weather
+  def arrival_forecast
     forecast = DarkSkyService.get_destination_forecast(destination_coords, @time[:value])
-    des_weather = DestinationWeather.new(forecast)
-    DestinationWeatherDecorator.new(des_weather)
+    des_weather = ArrivalForecast.new(forecast)
+    ArrivalForecastDecorator.new(des_weather)
   end
 end
