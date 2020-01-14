@@ -1,5 +1,5 @@
 class RoadtripFacade
-  attr_reader :id, :origin, :destination
+  attr_reader :id, :origin, :destination, :origin
 
   def initialize(origin, destination)
     @id = nil
