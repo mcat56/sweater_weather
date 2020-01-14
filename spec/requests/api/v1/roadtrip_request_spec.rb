@@ -6,6 +6,9 @@ describe 'sweater weather api' do
     @user = User.create(email: 'foofoo@gmail.com', password: 'password', password_confirmation: 'password')
   end
   it 'returns roadtrip info', :vcr do
+    WebMock.enable_net_connect!
+    VCR.eject_cassette
+    VCR.turn_off!(ignore_cassettes: true)
     post '/api/v1/road_trip', :params => { origin: 'Denver,CO', destination: 'Pueblo,CO', api_key: "#{@user.api_key}" }.to_json, :headers => { "CONTENT_TYPE" => "application/json"  }
 
     expect(response.status).to eq(200)
