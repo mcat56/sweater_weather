@@ -19,6 +19,6 @@ class RoadtripFacade
   def arrival_forecast
     forecast = DarkSkyService.get_destination_forecast(destination_coords, @time[:value])
     des_weather = ArrivalForecast.new(forecast)
-    DestinationWeatherDecorator.new(des_weather)
+    ArrivalForecastDecorator.new(des_weather)
   end
 end
