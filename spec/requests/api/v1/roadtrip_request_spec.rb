@@ -18,4 +18,16 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes][:arrival_forecast]).to have_key(:summary)
     expect(json[:data][:attributes][:arrival_forecast]).to have_key(:temperature)
   end
+  it 'returns error if no api', :vcr do
+    post '/api/v1/road_trip', :params => { origin: 'Denver,CO', destination: 'Pueblo,CO' }.to_json, :headers => { "CONTENT_TYPE" => "application/json"  }
+
+    expect(response.status).to eq(401)
+    expect(response.body).to eq('Unauthorized')
+  end
+  it 'returns error if invalid api', :vcr do
+    post '/api/v1/road_trip', :params => { origin: 'Denver,CO', destination: 'Pueblo,CO', api_key: 'fakerfake' }.to_json, :headers => { "CONTENT_TYPE" => "application/json"  }
+
+    expect(response.status).to eq(401)
+    expect(response.body).to eq('Unauthorized')
+  end
 end
