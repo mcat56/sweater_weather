@@ -1,5 +1,5 @@
 class HourlyForecast
-  attr_reader :summary, :humidity, :temperature, :id, :icon, :time
+  attr_reader :summary, :humidity, :temperature, :id, :icon, :time, :time_zone
 
   def initialize(count, forecast)
     @id = nil
@@ -8,5 +8,6 @@ class HourlyForecast
     @humidity = forecast[:hourly][:data][count][:humidity]
     @time = forecast[:hourly][:data][count][:time]
     @temperature = forecast[:hourly][:data][count][:temperature]
+    @time_zone = forecast[:timezone]
   end
 end
