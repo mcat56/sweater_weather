@@ -19,7 +19,7 @@ class ForecastFacade
   end
 
   def get_country(geo_location)
-    geo_location[:results].first[:address_components][3][:long_name]
+    @country = geo_location[:results].first[:address_components][3][:long_name]
   end
 
   def get_forecast
