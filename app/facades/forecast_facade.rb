@@ -5,7 +5,7 @@ class ForecastFacade
     @id = nil
     @loc = location
     @location = LocationPresenter.new(Location.new(location))
-    @country = 'United States'
+    @country = nil
   end
 
   def cache_key
@@ -13,8 +13,13 @@ class ForecastFacade
   end
 
   def get_coordinates
-    coordinates = GoogleGeocodeService.get_coordinates(@loc)
-    Coordinate.new(coordinates)
+    geo_location = GoogleGeocodeService.get_coordinates(@loc)
+    get_country(geo_location)
+    Coordinate.new(geo_location)
+  end
+
+  def get_country(geo_location)
+    @country = geo_location[:results].first[:address_components][3][:long_name]
   end
 
   def get_forecast
