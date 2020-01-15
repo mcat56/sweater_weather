@@ -4,8 +4,8 @@ class DarkSkyService
     self.get_json(coord)
   end
 
-  def self.get_destination_forecast(coord, travel_time, zone)
-    self.get_json(coord, (',' + (DateTime.now.in_time_zone(zone) + (travel_time/60).minutes).to_s.sub(' ','T').sub(' ', '')) )
+  def self.get_destination_forecast(coord, travel_time)
+    self.get_json(coord, (',' + (DateTime.now + (travel_time/60).minutes).to_s.sub(' ','T').sub(' ', '')) )
   end
 
   private
