@@ -1,11 +1,9 @@
 class ForecastFacade
-  attr_reader :id, :location, :country
+  attr_reader :id
 
   def initialize(location)
     @id = nil
     @loc = location
-    @location = nil
-    @country = nil
   end
 
   def cache_key
@@ -13,18 +11,12 @@ class ForecastFacade
   end
 
   def get_coordinates
-    geo_location = GoogleGeocodeService.get_coordinates(@loc)
-    get_location(geo_location)
-    get_country(geo_location)
-    Coordinate.new(geo_location)
+    @geo_location ||= GoogleGeocodeService.get_coordinates(@loc)
+    Coordinate.new(@geo_location)
   end
 
-  def get_country(geo_location)
-    @country = geo_location[:results].first[:address_components][3][:long_name]
-  end
-
-  def get_location(geo_location)
-    @location = geo_location[:results].first[:address_components][0][:long_name] + ', ' + geo_location[:results].first[:address_components][2][:short_name]
+  def geo_location
+    GeoLocation.new(@geo_location)
   end
 
   def get_forecast
