@@ -1,10 +1,14 @@
 class RoadtripFacade
-  attr_reader :id, :origin, :destination, :origin
+  attr_reader :id, :origin, :destination, :origin, :cache_key
 
   def initialize(origin, destination)
     @id = nil
     @origin = origin
     @destination = destination
+  end
+
+  def cache_key
+    { facade: self.class.to_s }
   end
 
   def travel_time
