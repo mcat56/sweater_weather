@@ -2,7 +2,7 @@ class GeoLocation
   attr_reader :location, :country
 
   def initialize(geo_location)
-    @location = geo_location[:results].first[:address_components][0][:long_name] + ', ' + geo_location[:results].first[:address_components][2][:short_name]
-    @country = geo_location[:results].first[:address_components][3][:long_name]
+    @location =  geo_location[:results].first[:address_components].find {|hash| hash[:types].include?('locality') }[:long_name] + ', ' + geo_location[:results].first[:address_components].find {|hash| hash[:types].include?('administrative_area_level_1') }[:short_name]
+    @country = geo_location[:results].first[:address_components].find {|hash| hash[:types].include?('country') }[:long_name]
   end
 end
