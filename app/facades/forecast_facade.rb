@@ -1,9 +1,14 @@
 class ForecastFacade
-  attr_reader :id
+  attr_reader :id, :location, :country
 
   def initialize(location)
     @id = nil
-    @location = location
+    @location = LocationPresenter.new(Location.new(location))
+    @country = 'United States'
+  end
+
+  def cache_key
+    { facade: self.class.to_s }
   end
 
   def get_coordinates

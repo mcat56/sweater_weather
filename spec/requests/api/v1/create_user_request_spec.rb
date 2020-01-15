@@ -10,7 +10,7 @@ describe 'sweater weather api' do
     expect(user.email).to eq('foofoo@gmail.com')
     expect(user.api_key).to_not eq(nil)
     expect(response.status).to eq(201)
-    expect(JSON.parse(response.body)['api_key']).to eq(user.api_key)
+    expect( JSON.parse(response.body)['data']['attributes']['api_key']).to eq(user.api_key)
   end
   it 'returns a 400 status for unsuccessful requests with a description' do
 
@@ -18,6 +18,7 @@ describe 'sweater weather api' do
 
     expect(User.all).to eq([])
     expect(response.status).to eq(400)
-    expect(response.body).to eq("Email can't be blank and Password confirmation doesn't match Password")
+    expect(response.body).to eq("{\"data\":{\"id\":null,\"type\":\"error\",\"attributes\":{\"message\":\"Email can't be blank and Password confirmation doesn't match Password\"}}}"
+)
   end
 end
