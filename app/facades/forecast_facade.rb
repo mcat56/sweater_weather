@@ -12,7 +12,7 @@ class ForecastFacade
   end
 
   def get_coordinates
-    coordinates = GoogleGeocodeService.get_coordinates(@location)
+    coordinates = GoogleGeocodeService.get_coordinates(@location.location)
     Coordinate.new(coordinates)
   end
 
