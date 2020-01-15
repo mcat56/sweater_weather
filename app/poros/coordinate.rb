@@ -1,8 +1,8 @@
 class Coordinate
   attr_reader :lat, :lng
 
-  def initialize(coords)
-    @lat = coords[:results].first[:geometry][:location][:lat]
-    @lng = coords[:results].first[:geometry][:location][:lng]
+  def initialize(geo_location)
+    @lat = geo_location[:results].first[:geometry][:location][:lat]
+    @lng = geo_location[:results].first[:geometry][:location][:lng]
   end
 end

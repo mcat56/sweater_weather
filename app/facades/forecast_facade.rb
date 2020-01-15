@@ -13,9 +13,13 @@ class ForecastFacade
   end
 
   def get_coordinates
-    location = GoogleGeocodeService.get_coordinates(@loc)
-    @country = location[:results].first[:address_components][3][:long_name]
-    Coordinate.new(location)
+    geo_location = GoogleGeocodeService.get_coordinates(@loc)
+    get_country(geo_location)
+    Coordinate.new(geo_location)
+  end
+
+  def get_country(geo_location)
+    geo_location[:results].first[:address_components][3][:long_name]
   end
 
   def get_forecast
