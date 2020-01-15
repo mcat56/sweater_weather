@@ -1,5 +1,5 @@
 class BackgroundFacade
-  attr_reader :id, :cache_key
+  attr_reader :id, :location
 
   def initialize(location)
     @id = nil

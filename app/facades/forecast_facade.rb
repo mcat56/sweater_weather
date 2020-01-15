@@ -3,6 +3,7 @@ class ForecastFacade
 
   def initialize(location)
     @id = nil
+    @loc = location
     @location = LocationPresenter.new(Location.new(location))
     @country = 'United States'
   end
@@ -12,7 +13,7 @@ class ForecastFacade
   end
 
   def get_coordinates
-    coordinates = GoogleGeocodeService.get_coordinates(@location)
+    coordinates = GoogleGeocodeService.get_coordinates(@loc)
     Coordinate.new(coordinates)
   end
 

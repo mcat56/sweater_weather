@@ -3,7 +3,7 @@ class GoogleGeocodeService
   def self.get_coordinates(address)
     self.get_json(address)[:results].first[:geometry][:location]
   end
-
+  
   private
 
     def self.connection(address)
