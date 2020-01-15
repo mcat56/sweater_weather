@@ -20,5 +20,3 @@ class DailyForecast
     end
   end
 end
-
-# DateTime.now.change({ hour: 0 })
