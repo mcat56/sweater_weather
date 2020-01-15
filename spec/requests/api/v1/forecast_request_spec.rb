@@ -12,7 +12,7 @@ describe 'sweater weather api' do
     expect(json[:data][:attributes]).to have_key(:hourly_forecast)
     expect(json[:data][:attributes]).to have_key(:daily_forecast)
     expect(json[:data][:attributes]).to have_key(:current_weather)
-    expect(json[:data][:attributes][:location][:location]).to eq('Denver, CO')
+    expect(json[:data][:attributes][:location]).to eq('Denver, CO')
     expect(json[:data][:attributes][:country]).to eq('United States')
 
     expect(json[:data][:attributes][:hourly_forecast].first).to have_key(:humidity)
